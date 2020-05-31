@@ -8,6 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+
 /**
  * Resource object for retrieving database connections from the configurations of the web server through JNDI.
  * 
@@ -38,8 +39,12 @@ public class Env
 	{
 		try
 		{
-			initCtx = new InitialContext();
-			envCtx = (Context)initCtx.lookup("java:comp/env");
+			//live
+			//initCtx = new InitialContext();
+			//envCtx = (Context)initCtx.lookup("java:comp/env");
+			
+			//test
+			getConnectionTicketParkTest();
 		}
 		catch(Exception ex)
 		{
@@ -99,6 +104,25 @@ public class Env
 			ex.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static Connection getConnectionTicketParkTest(){
+	
+		try
+		{
+			 con =
+				       DriverManager.getConnection("jdbc:mysql://localhost/ticket_dey?user=root&password=1W2w1s500.&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+			 
+			 
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Error retrieving the data source from the context...");
+			ex.printStackTrace();
+			
+		}  
+		
+		return  con;
 	}
 	
 }

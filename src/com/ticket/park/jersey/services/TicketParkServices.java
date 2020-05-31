@@ -46,7 +46,9 @@ public class TicketParkServices implements TicketParkServicesI {
 	@Path("syncEventTickets")
 	public ListResponse syncEventTickets(@FormParam("eventId") String eventId) {
 
-		return new ServicesImp().syncEventTickets(eventId); 
+		//return new ServicesImp().syncEventTickets(eventId); 
+		
+		return null;
 
 	}
 	
@@ -208,9 +210,9 @@ public class TicketParkServices implements TicketParkServicesI {
 	@Path("addUser")
 	public ServiceResponse addUser(@FormParam("email") String email, @FormParam("password") String password,
 			@FormParam("phone") String phone, @FormParam("fullname") String fullname,
-			@FormParam("usertype_id") String usertype_id) {
+			@FormParam("usertype_id") String usertype_id,@FormParam("user_id") String user_id) {
 
-		return new ServicesImp().addUser(email, password, phone, fullname, usertype_id);
+		return new ServicesImp().addUser(email, password, phone, fullname, usertype_id,user_id);
 
 	}
 	
@@ -310,7 +312,8 @@ public class TicketParkServices implements TicketParkServicesI {
 	public ServiceResponse registerThirdPartyTicket(@FormParam("ticketId") String ticketId,@FormParam("email") String email,
 			@FormParam("phone") String phone,@FormParam("fullName") String fullName) {
 
-		return new ServicesImp().registerThirdPartyTicket(json); 
+		//return new ServicesImp().registerThirdPartyTicket(json); 
+		return null;
 
 	}
 	

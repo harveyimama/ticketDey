@@ -48,7 +48,7 @@ public class APIService {
 	public void connectDB() throws SQLException {
 		closeConnection();
 
-		con = Env.getConnectionTicketPark();
+		con = Env.getConnectionTicketParkTest();
 	}
 
 	public void closeConnection() {
@@ -540,7 +540,7 @@ public class APIService {
 			output = stored_procedure2.getInt(5);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -582,7 +582,7 @@ public class APIService {
 			output = stored_procedure2.getInt(6);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -621,7 +621,7 @@ public class APIService {
 			output = stored_procedure2.getInt(5);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -659,7 +659,7 @@ public class APIService {
 			output = stored_procedure2.getInt(2);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -733,7 +733,7 @@ public class APIService {
 			output = stored_procedure2.getInt(2);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -769,7 +769,7 @@ public class APIService {
 			output = stored_procedure2.getInt(3);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -785,7 +785,7 @@ public class APIService {
 
 	}
 	
-	public int addUser(String email, String password, String phone, String fullname, String usertype_id,String token) {
+	public int addUser(String email, String password, String phone, String fullname, String usertype_id,String token,String user_id) {
 
 		int output = -1;
 
@@ -793,7 +793,7 @@ public class APIService {
 
 			connectDB();
 
-			stored_procedure2 = con.prepareCall("{call crt_user_sp(?,?,?,?,?,?,?)}");
+			stored_procedure2 = con.prepareCall("{call crt_user_sp(?,?,?,?,?,?,?,?)}");
 			stored_procedure2.setString(1, email);
 			stored_procedure2.setString(2, password);
 			stored_procedure2.setString(3, phone);
@@ -801,15 +801,17 @@ public class APIService {
 			stored_procedure2.setString(5, usertype_id);
 			stored_procedure2.setInt(6, output);
 			stored_procedure2.setString(7, token);
+			stored_procedure2.setString(8, user_id);
+			
 
 			stored_procedure2.registerOutParameter(6, java.sql.Types.INTEGER);
 
 			stored_procedure2.execute();
 
 			output = stored_procedure2.getInt(6);
-
+		
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -851,7 +853,7 @@ public class APIService {
 			output = stored_procedure2.getInt(6);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -892,7 +894,7 @@ public class APIService {
 			output = stored_procedure2.getInt(3);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -931,7 +933,7 @@ public class APIService {
 			output = stored_procedure2.getInt(3);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -970,7 +972,7 @@ public class APIService {
 			output = stored_procedure2.getInt(3);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -1010,7 +1012,7 @@ public class APIService {
 			output = stored_procedure2.getInt(3);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -1047,7 +1049,7 @@ public class APIService {
 			output = stored_procedure2.getInt(3);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -1096,7 +1098,7 @@ public class APIService {
 			output = stored_procedure2.getInt(13);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}
@@ -1147,7 +1149,7 @@ public class APIService {
 			output = stored_procedure2.getInt(13);
 
 			if (output == 0) {
-				con.commit();
+				//con.commit();
 			} else {
 				con.rollback();
 			}

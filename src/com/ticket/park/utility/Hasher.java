@@ -167,6 +167,7 @@ public class Hasher
      new byte[] { 'W', '@', 'l', 'l', 'e', 't', 'f',
 'e', 't', 'S', '.','1', '2', '3', '!', '#' };
 
+ /*
 public static String encrypt(String Data) throws Exception {
      Key key = generateKey();
      Cipher c = Cipher.getInstance(ALGO);
@@ -198,7 +199,7 @@ public static String encrypt(String Data) throws Exception {
      return decryptedValue;
  }
  
- 
+ */
  
  private static Key generateKey() throws Exception {
      Key key = new SecretKeySpec(keyValue, ALGO);

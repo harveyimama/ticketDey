@@ -13,7 +13,7 @@ private  EventTypeDto eventTypeDataHold;
 private  ChargeDto chargeTypeDataHold;
 private TicketType ticketTypeDataHold;
 private EventTicketDto eventTicketDataHold;
-private EventDto eventDataHold;
+private EventDto eventDataHold;	
 
 	
 	public DDCategory()

@@ -713,7 +713,9 @@ public class ServicesImp {
 
 		try {
 			
-			UserDto user = modelCall.login(email,password);
+			System.out.println("password = "+password);
+			Hasher hashcall = new Hasher();
+			UserDto user = modelCall.login(email,hashcall.getSHA512HashValue(password));
 
 			if (user != null) {
 
@@ -817,7 +819,7 @@ public class ServicesImp {
 	}
 	
 	
-	public ServiceResponse addUser(String email, String password, String phone, String fullname, String usertype_id) {
+	public ServiceResponse addUser(String email, String password, String phone, String fullname, String usertype_id,String user_id) {
 		ServiceResponse res = new ServiceResponse();
 		APIService modelCall = new APIService();
 
@@ -829,7 +831,8 @@ public class ServicesImp {
 			String token = passcall.generateRandomRedeemCode();
 
 	
-			int ret = modelCall.addUser(email, hashcall.getSHA512HashValue(password), phone, fullname, usertype_id,Hasher.getSHA512HashValue(token));
+			int ret = modelCall.addUser(email, hashcall.getSHA512HashValue(password), phone, fullname,
+					usertype_id,Hasher.getSHA512HashValue(token),user_id);
 
 			if (ret == 0) {
 				
